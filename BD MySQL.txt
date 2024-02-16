@@ -1,0 +1,89 @@
+Drop table Miscari;
+Drop table Carduri;
+Drop table Conturi;
+Drop table Persoane;
+
+CREATE TABLE Persoane
+(idpers INT NOT NULL,
+nume varchar(50) NOT NULL,
+adresa varchar(50) NOT NULL,
+gen varchar(50) NOT NULL,
+data_nasterii date);
+ALTER TABLE Persoane ADD email varchar(50) NOT NULL;
+
+CREATE TABLE Conturi(
+nrcont INT NOT NULL,
+sold int NOT NULL,
+idpers int NOT NULL
+);
+
+CREATE TABLE Carduri
+(nrcard varchar(50) NOT NULL,
+data_de_la date NOT NULL,
+data_la date NOT NULL,
+limita int NOT NULL,
+nrcont int NOT NULL,
+tip varchar(50) NOT NULL,
+categorie varchar(50) NOT NULL
+);
+
+CREATE TABLE Miscari (
+    nrcard varchar(50) NOT NULL,
+    data_ora varchar(50) NOT NULL,
+    valoare int NOT NULL,
+    scop varchar(20) NOT NULL
+);
+
+
+INSERT INTO Persoane(idpers,nume,adresa,gen,data_nasterii,email) VALUES (100,'Dana','Bistrita','F',str_to_date('12/01/1992','%m/%d/%Y'),'Dana@yahoo.com');
+INSERT INTO Persoane(idpers,nume,adresa,gen,data_nasterii,email) VALUES (200,'Ioana','Bistrita','F',str_to_date('02/01/1998','%m/%d/%Y'),'Ioana@yahoo.com');
+INSERT INTO Persoane(idpers,nume,adresa,gen,data_nasterii,email) VALUES (300,'Maria','Bistrita','F',str_to_date('02/03/1999','%m/%d/%Y'),'Maria@yahoo.com');
+INSERT INTO Persoane(idpers,nume,adresa,gen,data_nasterii,email) VALUES (400,'Florin','Marasti','M',str_to_date('2/09/2012','%m/%d/%Y'),'Florin@yahoo.com');
+INSERT INTO Persoane(idpers,nume,adresa,gen,data_nasterii,email) VALUES (500,'Ionut','Zorilor','M',str_to_date('2/10/2000','%m/%d/%Y'),'Ionut@yahoo.com');
+INSERT INTO Persoane(idpers,nume,adresa,gen,data_nasterii,email) VALUES (600,'Paul','Manastur','M',str_to_date('4/11/2000','%m/%d/%Y'),'Paul@yahoo.com');
+INSERT INTO Persoane(idpers,nume,adresa,gen,data_nasterii,email) VALUES (700,'Gigi','Olt','M',str_to_date('4/11/1999','%m/%d/%Y'),'Gigi@yahoo.com');
+insert into Conturi(nrcont,sold,idpers) values (51,'10000',500);
+insert into Conturi(nrcont,sold,idpers) values (52,'30000',500);
+insert into Carduri(nrcard,data_de_la,data_la,limita,nrcont,tip,categorie) values ('511',str_to_date('11/5/2002','%m/%d/%Y'),str_to_date('11/11/2030','%m/%d/%Y'),'9000',51,'MASTERCARD','DEBIT');
+insert into Carduri(nrcard,data_de_la,data_la,limita,nrcont,tip,categorie) values ('521',str_to_date('1/2/2003','%m/%d/%Y'),str_to_date('11/11/2030','%m/%d/%Y'),'7000',52,'VISA','DEBIT');
+insert into Carduri(nrcard,data_de_la,data_la,limita,nrcont,tip,categorie) values ('512',str_to_date('11/3/2002','%m/%d/%Y'),str_to_date('11/11/2030','%m/%d/%Y'),'9000',51,'MASTERCARD','CREDIT');
+INSERT INTO Miscari(nrcard,data_ora,valoare,scop) VALUES ('521','14-Mar-2019 19:17:44', 800, 'ADIDASI');
+INSERT INTO Miscari(nrcard,data_ora,valoare,scop) VALUES ('511','11-Mar-2021 23:18:13', 130, 'plata rata');
+INSERT INTO Miscari(nrcard,data_ora,valoare,scop) VALUES ('512','18-Mar-2003 19:17:34', 1100, 'TELEFON');
+INSERT INTO Miscari(nrcard,data_ora,valoare,scop) VALUES ('512','17-Mar-2004 19:17:12', 300, 'MASINA');
+INSERT INTO Miscari(nrcard,data_ora,valoare,scop) VALUES ('512','17-Mar-2004 19:17:12', 600, 'MASINA');
+INSERT INTO Miscari(nrcard,data_ora,valoare,scop) VALUES ('511','01-Jan-2022 17:17:45', 800, 'CASA');
+INSERT INTO Miscari(nrcard,data_ora,valoare,scop) VALUES ('521','15-Feb-2019 19:17:43', 550, 'CADOURI');
+INSERT INTO Miscari(nrcard,data_ora,valoare,scop) VALUES ('521','01-Jan-2022 18:17:32', 923, 'MASINA');
+insert into Conturi(nrcont,sold,idpers) values (11,'10000',100);
+insert into Conturi(nrcont,sold,idpers) values (12,'30000',100);
+insert into Carduri(nrcard,data_de_la,data_la,limita,nrcont,tip,categorie) values ('111',str_to_date('11/20/2002','%m/%d/%Y'),str_to_date('11/11/2030','%m/%d/%Y'),'9000',11,'MASTERCARD','DEBIT');
+insert into Carduri(nrcard,data_de_la,data_la,limita,nrcont,tip,categorie) values ('121',str_to_date('1/2/2003','%m/%d/%Y'),str_to_date('11/11/2030','%m/%d/%Y'),'7000',12,'VISA','DEBIT');
+insert into Conturi(nrcont,sold,idpers) values (31,'30000',300);
+insert into Carduri(nrcard,data_de_la,data_la,limita,nrcont,tip,categorie) values ('311',str_to_date('12/3/2005','%m/%d/%Y'),str_to_date('11/11/2030','%m/%d/%Y'),'9000',31,'MASTERCARD','DEBIT');
+INSERT INTO Miscari(nrcard,data_ora,valoare,scop) VALUES ('311','19-Nov-2021 15:15:00', 456, 'VACANTA');
+INSERT INTO Miscari(nrcard,data_ora,valoare,scop) VALUES ('311','21-Feb-2021 17:42:00', 960, 'ECONOMIE');
+INSERT INTO Miscari(nrcard,data_ora,valoare,scop) VALUES ('311','18-Oct-2021 18:56:00', 600, 'SCOALA');
+INSERT INTO Miscari(nrcard,data_ora,valoare,scop) VALUES ('311','15-Feb-2022 15:34:00', 100, 'TAXA FACULTATE');
+insert into Conturi(nrcont,sold,idpers) values (21,'30000',200);
+insert into Carduri(nrcard,data_de_la,data_la,limita,nrcont,tip,categorie) values ('211',str_to_date('10/23/2007','%m/%d/%Y'),str_to_date('11/11/2030','%m/%d/%Y'),'9000',21,'VISA','DEBIT');
+INSERT INTO Miscari(nrcard,data_ora,valoare,scop) VALUES ('211','20-Jan-2021 15:15:00', 456, 'VACANTA');
+INSERT INTO Miscari(nrcard,data_ora,valoare,scop) VALUES ('211','21-Jan-2021 17:42:00', 900, 'ECONOMIE');
+INSERT INTO Miscari(nrcard,data_ora,valoare,scop) VALUES ('211','11-Oct-2021 18:56:00', 400, 'SCOALA');
+INSERT INTO Miscari(nrcard,data_ora,valoare,scop) VALUES ('211','15-Feb-2022 15:34:00', 300, 'TAXA FACULTATE');
+insert into Conturi(nrcont,sold,idpers) values (61,'30000',600);
+insert into Carduri(nrcard,data_de_la,data_la,limita,nrcont,tip,categorie) values ('102301',str_to_date('1/2/2018','%m/%d/%Y'),str_to_date('11/11/2030','%m/%d/%Y'),'9000',61,'MASTERCARD','DEBIT');
+INSERT INTO Miscari(nrcard,data_ora,valoare,scop) VALUES ('102301','01-Jan-2022 17:34:32', 923, 'CASA');
+INSERT INTO Miscari(nrcard,data_ora,valoare,scop) VALUES ('102301','01-Jan-2022 17:45:00', 963, 'MASINA');
+
+
+
+ALTER TABLE Persoane ADD CONSTRAINT CHECK(gen IN ('M','F'));
+ALTER TABLE Persoane ADD PRIMARY KEY (idpers);
+ALTER TABLE Conturi ADD FOREIGN KEY (idpers) REFERENCES Persoane(idpers);
+ALTER TABLE Conturi ADD PRIMARY KEY (nrcont);
+ALTER TABLE Carduri ADD CONSTRAINT CHECK(tip IN ('VISA','MASTERCARD'));
+ALTER TABLE Carduri ADD CONSTRAINT CHECK(categorie IN ('DEBIT','CREDIT'));
+ALTER TABLE Carduri ADD PRIMARY KEY (nrcard);
+ALTER TABLE Carduri ADD FOREIGN KEY (nrcont) REFERENCES Conturi(nrcont);
+ALTER TABLE Miscari ADD FOREIGN KEY (nrcard) REFERENCES Carduri(nrcard);
